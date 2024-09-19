@@ -29,6 +29,7 @@ use App\Http\Controllers\Siswa\SiswaNilaiController;
 
 
 Route::controller(IndexController::class)->group(function () {
+    Route::get('base', 'base');
     Route::get('/', 'beranda');
     Route::get('tentang', 'tentang');
     Route::get('kelas', 'kelas');

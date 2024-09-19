@@ -22,8 +22,8 @@
           <form action="{{url('admin/master-data/kelas-materi',$kelas->kelas_id)}}/create" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <span>Icon Kelas</span>
-                <input type="file" accept="image/*" name="kelas_icon" required class="form-control">
+                <span>Icon Materi</span>
+                <input type="file" accept="image/*" name="materi_icon[]" required class="form-control">
             </div>
 
             <div class="row">
@@ -106,7 +106,7 @@
                     @foreach($list_materi as $item)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td><a href="{{url('admin/master-data/kelas',$item->kelas_materi_id)}}/delete-materi" class="btn btn-sm alert-danger">Hapus</a></td>
+                        <td><a href="{{url('admin/master-data/kelas',$item->kelas_materi_id)}}/delete-materi" class="btn btn-sm alert-danger" onclick="return confirm('Yakin hapus data ini?')">Hapus</a></td>
                         <td>{{ucwords($item->materi_nama)}}</td>
                         <td>{{ucwords($item->pengajar->pengajar_nama)}}</td>
                     </tr>
@@ -137,21 +137,16 @@
                     <thead>
                         <tr class="alert-warning">
                             <th>No</th>
-                            <th>Aksi</th>
                             <th>Nama</th>
-                            <th>No Telp</th>
+                            <th>Jenis Kelamin</th>
                         </tr>
                     </thead>
 
                     @foreach($list_siswa as $siswa)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td>
-                            <a href="" class="btn alert-dark">Lihat</a>
-                            <a href="" class="btn alert-success">Absensi</a>
-                        </td>
                         <td>{{ucwords($siswa->siswa_nama)}}</td>
-                        <td>{{ucwords($siswa->siswa_notlp)}}</td>
+                        <td>{{ucwords($siswa->siswa_jenis_kelamin)}}</td>
                     </tr>
                     @endforeach
                 </table>
@@ -177,7 +172,14 @@
     ++u;
 
     var isi_dasar = `
-    <div class="row">
+    <div class="row mb-3 mt-3">
+    <div class="col-md-12">
+      <div class="form-group">
+                <span>Icon Materi</span>
+                <input type="file" accept="image/*" name="materi_icon[]" required class="form-control">
+            </div>
+            </div>
+
           <div class="col-md-6">
             <div class="form-group">
               <span>Mapel Pilihan</span>

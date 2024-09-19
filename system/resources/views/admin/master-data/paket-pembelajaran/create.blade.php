@@ -16,12 +16,12 @@
                 </div>
             </div>
 
-            <div class="col-md-12 mb-5">
+            <!-- <div class="col-md-12 mb-5">
                 <div class="form-group">
                     <span>Deskripsi Paket</span>
                     <textarea name="paket_deskripsi" placeholder="Deskripsi perbedaan paket dengan yang lainnya ..." id="" cols="30" rows="10" class="form-control"></textarea>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-md-6">
                 <div class="form-group">

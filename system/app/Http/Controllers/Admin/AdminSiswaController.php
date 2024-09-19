@@ -10,7 +10,17 @@ class AdminSiswaController extends Controller
 {
     function index(){
         $data['list_siswa'] = Siswa::where('flag_erase',1)->get();
-        $data['jumlahSiswa'] = Siswa::where('flag_erase',1)->count();
+
+        $data['lakiLaki'] = Siswa::where('flag_erase',1)
+        ->where('siswa_jenis_kelamin','laki-laki')
+        ->count();
+
+        $data['perempuan'] = Siswa::where('flag_erase',1)
+        ->where('siswa_jenis_kelamin','perempuan')
+        ->count();
+
+         $data['jumlahSiswa'] = Siswa::where('flag_erase',1)
+        ->count();
         return view('admin.master-data.siswa.index',$data);
     }
 

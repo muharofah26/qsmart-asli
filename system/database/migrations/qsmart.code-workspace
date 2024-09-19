@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../si-posyandu"
+		},
+		{
+			"path": "../../../../../../../../Users/macair/Downloads/InfiMed"
+		},
+		{
+			"path": "../../../../../../../../Users/macair/Downloads/slider-gate-custom"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "slider-gate-custom"
+	}
+}

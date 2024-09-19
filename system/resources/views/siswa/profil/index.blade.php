@@ -58,7 +58,7 @@
                     <input type="password" name="new" minlength="3" class="form-control">
                 </div>
 
-                  <div class="form-group">
+                <div class="form-group">
                     <span>Konfirmasi Password Baru</span>
                     <input type="password" name="confirm" minlength="3" class="form-control">
                 </div>
@@ -70,8 +70,8 @@
 </div>
 </div>
 
-
-<table class="table table-borderless table-striped table-hover mt-3">
+<div class="table-responsive">
+   <table class="table table-borderless table-striped table-hover mt-3">
     <tr>
         <th width="200px">Kode Siswa</th>
         <td>: {{ucwords($siswa->siswa_kode)}}</td>
@@ -145,7 +145,9 @@
         <td>: {{ucwords($siswa->siswa_alamat_ortu)}}</td>
     </tr>
 
-</table>
+</table> 
+</div>
+
 </div>
 </div>
 @endsection

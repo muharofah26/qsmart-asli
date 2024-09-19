@@ -56,6 +56,7 @@ function update(Siswa $siswa){
    $siswa->siswa_ortu_notlp = request('siswa_ortu_notlp');
    $siswa->siswa_paket_les_id = request('siswa_paket_les_id');
    $siswa->siswa_semester_awal_id = $semeterAwal;
+   $siswa->handleUploadFoto();
    $siswa->save();
    return back()->with('success','Profil berhasil diperbaharui');
 }

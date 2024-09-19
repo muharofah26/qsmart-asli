@@ -9,7 +9,7 @@
       <a href="{{url('x/kelas',$item->kelas_materi_id)}}/detail" style="text-decoration: none">
         <div class="card shadow">
           <div class="card-body p-0">
-            <img class=" w-100" src="{{asset('system/public')}}/{{$item->kelas_icon}}" onerror="this.src='{{url('public/assets/kelas-3.jpeg')}}';" height="300px" alt="" />
+            <img class=" w-100" src="{{asset('system/public')}}/{{$item->materi_icon}}" onerror="this.src='{{url('public/assets/kelas-3.jpeg')}}';" height="300px" alt="" />
           </div>
           <div class="card-body px-3 text-dark">
 

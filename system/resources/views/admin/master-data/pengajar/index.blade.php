@@ -32,7 +32,7 @@
                 <div class="btn-group">
                 <a href="{{url('admin/master-data/pengajar',$item->pengajar_id)}}/detail" class="btn btn-sm btn-dark"><i class="mdi mdi-eye"></i></a>
                 <a href="{{url('admin/master-data/pengajar',$item->pengajar_id)}}/edit" class="btn btn-sm btn-warning"><i class="mdi mdi-pen"></i></a>
-                <a href="{{url('admin/master-data/pengajar',$item->pengajar_id)}}/delete" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>
+                <a href="{{url('admin/master-data/pengajar',$item->pengajar_id)}}/delete" onclick="return confirm('Yakin hapus data ini?')" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>
               </div>
               </td>
               <td><img src="{{asset('system/public')}}/{{$item->pengajar_foto}}" class=" rounded-top" width="100px" alt=""></td>

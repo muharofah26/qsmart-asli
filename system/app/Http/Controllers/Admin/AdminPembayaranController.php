@@ -27,6 +27,6 @@ class AdminPembayaranController extends Controller
     function destroy(Pembayaran $pembayaran){
         $pembayaran->flag_erase = 0;
         $pembayaran->save();
-        return back()->with('dangger','Metode pemabayaran berhasil dihapus');
+        return back()->with('dangger','Metode pembayaran berhasil dihapus');
     }
 }

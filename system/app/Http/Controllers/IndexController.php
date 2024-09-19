@@ -18,6 +18,10 @@ use Auth;
 
 class IndexController extends Controller
 {
+
+    function base(){
+        return view('newbase');
+    }
     function beranda(){
         $data['list_kelas'] = Kelas::where('flag_erase',1)->get();
         $data['website'] = Website::first();

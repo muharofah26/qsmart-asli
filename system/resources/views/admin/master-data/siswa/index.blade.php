@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
 
-    <div class="col-md-4">
+    <div class="col-md-4 col-12 mb-3">
         <div class="card border-0 shadow bg-warning text-white">
             <div class="card-body">
                 <h3>Jumlah Siswa <br> {{$jumlahSiswa}}</h3>
@@ -10,25 +10,26 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4 col-12 mb-3">
         <div class="card border-0 shadow bg-warning text-white">
             <div class="card-body">
-                <h3>Jumlah Siswa Aktif<br> 5</h3>
+                <h3>Jumlah Laki-laki <br> {{$lakiLaki}}</h3>
             </div>
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4 col-12 mb-3">
         <div class="card border-0 shadow bg-warning text-white">
             <div class="card-body">
-                <h3>Jumlah Non Aktif<br> 5</h3>
+                <h3>Jumlah Perempuan<br> {{$perempuan}}</h3>
             </div>
         </div>
     </div>
+
 </div>
 
 <div class="card mt-3">
-    <div class="card-body">
+    <div class="card-body table-responsive">
         <center>
             <h3>Data pelajar Qsmart</h3>
         </center>
@@ -41,7 +42,6 @@
                     <th>Kode Siswa</th>
                     <th>Nama Siswa</th>
                     <th>Paket Kelas</th>
-                    <th>Gambar</th>
                     <th>Kelas</th>
                 </tr>
             </thead>
@@ -58,8 +58,7 @@
                 </td>
                 <td>{{ucwords($item->siswa_kode)}}</td>
                 <td>{{ucwords($item->siswa_nama)}}</td>
-                <td>Paket Kelas</td>
-                <td class="text-center"><img src="{{asset('system/public')}}/{{$item->siswa_foto}}" width="100%" alt=""></td>
+                <td>{{strtoupper($item->paket->paketNama->paket_nama ?? $item->siswa_paket_les_id)}}</td>
                 <td class="text-center">{{$item->siswa_kelas}}</td>
             </tr>
             @endforeach
@@ -72,7 +71,6 @@
                     <th>Kode Siswa</th>
                     <th>Nama Siswa</th>
                     <th>Paket Kelas</th>
-                    <th>Gambar</th>
                     <th>Kelas</th>
                 </tr>
             </tfoot>

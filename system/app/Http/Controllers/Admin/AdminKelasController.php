@@ -8,6 +8,7 @@ use App\Models\Kelas;
 use App\Models\KelasMateri;
 use App\Models\Pengajar;
 use App\Models\Siswa;
+use Str;
 
 class AdminKelasController extends Controller
 {
@@ -42,41 +43,50 @@ class AdminKelasController extends Controller
     }
 
     function storeMateri(Request $request, Kelas $kelas){
-        for($i = 0; $i < count($request->kelas_materi_pilihan); $i++){
-            $km = new KelasMateri;
-            $km->kelas_id = $kelas->kelas_id;
-            $km->kelas_nomor = $kelas->kelas_nomor;
-            $km->materi_nama = $request->kelas_materi_pilihan[$i];
-            $km->pengajar_id = $request->pengajar_id[$i];
-            $km->save();
 
-        }
+      $file = $request->file('materi_icon');
 
-        return back()->with('success','Materi kelas berhasil ditambah');
+      for($i = 0; $i < count($request->kelas_materi_pilihan); $i++){
+
+          $rand = Str::random(5) . '-' . Str::random(5);
+          $nama_file = 'materi-icon' . '-' . $rand . '-' . time() . '.' . $file[$i]->extension();
+          $store = $file[$i]->storeAs('gambar-materi', $nama_file);
+
+          $km = new KelasMateri;
+          $km->kelas_id = $kelas->kelas_id;
+          $km->kelas_nomor = $kelas->kelas_nomor;
+          $km->materi_nama = $request->kelas_materi_pilihan[$i];
+          $km->pengajar_id = $request->pengajar_id[$i];
+          $km->materi_icon = $store;
+          $km->save();
+
+      }
+
+      return back()->with('success','Materi kelas berhasil ditambah');
+  }
+
+  function store(Request $request){
+    $kelas = new Kelas;
+    $kelas->kelas_nomor = request('kelas_nomor');
+    $kelas->save();
+
+    for($i = 0; $i < count($request->kelas_materi_pilihan); $i++){
+
+        $km = new KelasMateri;
+        $km->kelas_id = $kelas->kelas_id;
+        $km->materi_nama = $request->kelas_materi_pilihan[$i];
+        $km->pengajar_id = $request->pengajar_id[$i];
+        $km->save();
     }
 
-    function store(Request $request){
-        $kelas = new Kelas;
-        $kelas->kelas_nomor = request('kelas_nomor');
-        $kelas->save();
-        
-        for($i = 0; $i < count($request->kelas_materi_pilihan); $i++){
+    return back()->with('success','Kelas berhasil ditambah');
 
-            $km = new KelasMateri;
-            $km->kelas_id = $kelas->kelas_id;
-            $km->materi_nama = $request->kelas_materi_pilihan[$i];
-            $km->pengajar_id = $request->pengajar_id[$i];
-            $km->save();
-        }
+}
 
-        return back()->with('success','Kelas berhasil ditambah');
+function destroyMateri(KelasMateri $materi){
+    $materi->flag_erase = 0;
+    $materi->save();
+    return back()->with('warning','Materi telah dihapus');
+}
 
-    }
-
-    function destroyMateri(KelasMateri $materi){
-        $materi->flag_erase = 0;
-        $materi->save();
-        return back()->with('warning','Materi telah dihapus');
-    }
-    
 }

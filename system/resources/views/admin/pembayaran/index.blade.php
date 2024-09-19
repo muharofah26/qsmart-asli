@@ -32,22 +32,22 @@
                 @csrf
                 <div class="form-group">
                     <span>Nama Pembayaran</span>
-                    <input type="text" name="pembayaran_nama" class="form-control">
+                    <input type="text" name="pembayaran_nama" required class="form-control">
                 </div>
 
                 <div class="form-group">
                     <span>Nomor Pembayaran</span>
-                    <input type="text" name="pembayaran_nomor" class="form-control">
+                    <input type="text" name="pembayaran_nomor" required class="form-control">
                 </div>
 
                 <div class="form-group">
                     <span>Nama Penerima Pembayaran</span>
-                    <input type="text" name="pembayaran_penerima" class="form-control">
+                    <input type="text" name="pembayaran_penerima" required class="form-control">
                 </div>
 
                 <div class="form-group">
                     <span>Icon Pembayaran</span>
-                    <input type="file" accept="image/*" name="pembayaran_icon" class="form-control">
+                    <input type="file" accept="image/*" name="pembayaran_icon" required class="form-control">
                 </div>
                 <button class="btn btn-block bg-utama">Simpan</button>
                 </form>

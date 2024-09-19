@@ -5,7 +5,7 @@
 <div class="card">
     <div class="card-body">
         <!-- <a href="{{url('p/kelas',$detail->kelas_materi_id)}}/buat-tugas" class="btn btn-lg alert-success float-right" >Buat Tugas</a> -->
-        <button type="button" class="btn btn-lg alert-danger float-right ml-2 mr-2"  data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-lg alert-success float-right ml-2 mr-2"  data-toggle="modal" data-target="#exampleModal">
             Buat Absensi
         </button>
 
@@ -61,24 +61,7 @@
 </div>
 
 <div class="row mt-3">
-    <!-- <div class="col-md-4">
-        <div class="card">
-            <div class="card-body alert-success">
-                <h3>Jumlah Tugas</h3>
-                <h1>{{$jumlahTugas}}</h1>
-            </div>
-        </div>
-    </div> -->
-
-<!--     <div class="col-md-4">
-        <div class="card">
-            <div class="card-body alert-success">
-                <h3>Tugas Aktif</h3>
-                <h1>{{$jumlahSiswa}}</h1>
-            </div>
-        </div>
-    </div> -->
-
+  
     <div class="col-md-4">
         <div class="card">
             <div class="card-body alert-success">
@@ -94,53 +77,7 @@
 {{-- body --}}
 
 <div class="row mt-5">
- <!--    <div class="col-md-7">
-     <div class="card">
-        <div class="card-body table-responsive">
-            <h3>Tugas Kelas {{$detail->kelas_nomor}}</h3>
-            
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr class="alert-success">
-                        <th>No</th>
-                        <th>Aksi</th>
-                        <th>Tanggal Mulai Tugas</th>
-                        <th>Tanggal Selesai Tugas</th>
-                        <th>Jumlah <br> Mengumpulkan</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach ($list_soal as $item)
-                    <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>
-                            <a href="{{url('p/tugas',$item->soal_master_id)}}/soal" class="btn btn-sm alert-success"><i class="fa fa-eye"></i></a>
-                            <a href="{{url('p/tugas',$item->soal_master_id)}}/list-jawaban" class="btn btn-sm alert-dark" title="Kumpulan Jawaban"><i class="fa fa-list-alt"></i></a>
-
-                            <a href="{{url('p/tugas',$item->soal_master_id)}}/delete" class="btn btn-sm alert-danger" onclick="return confirm('yakin menghapus data ini?')"><i class="fa fa-trash"></i></a>
-                        </td>
-                        <td>{{$item->soal_tanggal_mulai}}</td>
-                        <td>{{$item->soal_tanggal_selesai}}</td>
-                        <td>0</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-
-                <tfoot>
-                    <tr class="alert-success">
-                        <th>No</th>
-                        <th>Aksi</th>
-                        <th>Tanggal Mulai Tugas</th>
-                        <th>Tanggal Selesai Tugas</th>
-                        <th>Jumlah Mengumpulkan</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </div> -->
-<!-- </div> -->
-
+ 
 <div class="col-md-12">
     <div class="card">
         <div class="card-body">
